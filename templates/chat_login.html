@@ -1,0 +1,57 @@
+{% extends 'mybase.html' %}
+
+{% block sidebar %}
+
+    <div class="sidebar bbs-box">
+        <h3>Welcome to chat room</h3>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+<div class="content bbs-box majorbar">
+    {{super()}}
+    <h1 class="sign-title">Submit your name to enter the room</h1>
+	
+    <form action="/chat/login" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="username">Username</label>
+            <div class="col-sm-10">
+                <input id="id-input-username" class="form-control" type="text"  style="width: 300px" name="username" placeholder="username">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="id-button-submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+    var log = function(){
+        console.log(arguments)
+    }
+
+    var bindAction = function(){
+        $('#id-button-submit').on('click', function(e){
+			var form = {
+				username: $('#id-input-username').val()
+			}
+            if(form.username == ""){
+				e.preventDefault()
+                swal('username can\'t be empty')
+            }
+        })
+    }
+
+    $(document).ready(function(){
+        bindAction()
+    })
+</script>
+{%- endblock scripts %}
+

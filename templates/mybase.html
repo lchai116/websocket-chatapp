@@ -1,0 +1,95 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles%}
+<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename='css/bbs.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename='css/sweetalert2.min.css')}}" rel="stylesheet">
+{% endblock styles %}
+
+
+
+{% block body %}
+
+{% block topbar %}
+<div class="bbs-nav-container">
+  <div class="bbs-nav-header">
+    <a href="#">DU1-Forum</a>
+  </div>
+  <div class="bbs-nav-cell" align="">
+      <a class="bbs-navcell-item" href="/node/1">Home</a>
+      <a class="bbs-navcell-item" href="#">WaterPool</a>
+      <a class="bbs-navcell-item" href="#">Songs</a>
+      {% if cur_user %}
+      <a class="bbs-navcell-item" href="/signout">Sign Out</a>
+      {% else %}
+      <a class="bbs-navcell-item" href="/signin">Sign In</a>
+      {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock topbar %}
+
+
+
+
+<div class="main">
+{% block main %}
+
+
+    <!--<div class="nodes">-->
+      {% block nodes %}
+      {% endblock nodes %}
+    <!--</div>-->
+
+    <!--<div class="sidebar bbs-box">-->
+      {% block sidebar %}
+       <div class="sidebar bbs-box">
+           {% if cur_user %}
+           <div>
+               <a href="{{url_for('user_blue.profile', username= cur_user.username)}}"><img class="bbs-avatar" src="{{cur_user.avatar}}" height="48" width="55"></a>
+               <span class="greeting"><a href="{{url_for('user_blue.profile', username= cur_user.username)}}">{{cur_user.username}}</a></span>
+           </div>
+           {% else %}
+           <h1>Hello! guest</h1>
+           <a href="/signin">Sign In to share</a>
+           {% endif %}
+       </div>
+      {% endblock sidebar %}
+    <!--</div>-->
+
+
+    <!--<div class="content bbs-box majorbar">-->
+      {% block content %}
+        {% block alert %}
+        {% for message in get_flashed_messages() %}
+        <div style="float: right;" class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endblock alert %}
+      {% endblock content %}
+    <!--</div>-->
+
+    <!--<div class="topic-post-container majorbar bbs-box">-->
+      {% block topic_post %}
+      {% endblock topic_post %}
+    <!--</div>-->
+
+{% endblock %}
+</div>
+
+
+
+
+{% block scripts %}
+{{ super() }}
+<script src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/sweetalert2.js"></script>
+{%- endblock scripts %}
+
+
+
+{% endblock body %}

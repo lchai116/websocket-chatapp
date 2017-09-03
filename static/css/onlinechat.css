@@ -1,0 +1,138 @@
+
+
+
+
+.sidebar {
+
+    height: 100%;
+    background: #4D394B;
+    position: fixed;
+    width: 270px;
+    top: 0px;
+    right: 0px;
+    z-index: 5;
+}
+
+.side-channel-item {
+    color: rgb(184,176,183);
+    height: 26px;
+    line-height: 26px;
+    padding: 0 0.75rem 0 35px;
+    width: 100%;
+
+}
+
+.side-channel-active {
+    background: #4C9689;
+}
+.side-channel-item  a{
+    display: block;
+    text-decoration: none;
+    color: #ddd;
+    font-size: 16px;
+    padding-left: 45px;
+}
+.side-channel-item:hover {
+    background-color: #1f1b1e;
+}
+.oc-userlist-avatar {
+    float: left;
+}
+
+.user-list {
+    margin-top: 20px;
+    margin-left: 18px;
+}
+.user-item {
+    padding: 1px 40px 2px 26px;
+    min-height: 33px;
+}
+.user-item-name a {
+    color: #ddd;
+}
+.main-box {
+    margin: 0 auto;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    background: white;
+    height: 100%;
+}
+
+.topbar {
+    border-bottom: solid lightgray 1px;
+    padding: 10px 30px 10px 20px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background: white;
+}
+.oc-user-info {
+    margin-left: 65px;
+    margin-right: 90px;
+    word-break: break-word;
+}
+
+.oc-title {
+    font-size: 16px;
+}
+
+.oc-main {
+    margin-bottom: 85px;
+    margin-top: 65px;
+}
+
+.oc-input {
+    position: fixed;
+    bottom: 0px;
+    width: 2130px;
+    padding: 5px 30px 20px;
+    background: white;
+}
+.oc-input button {
+    border: solid 1px grey;
+}
+#id-input-name {
+    border: solid grey 2px;
+}
+#id-input-content {
+    border: solid 2px grey;
+    margin-top: 3px;
+}
+#id-button-send {
+    position: absolute;
+    bottom: 20px;
+    width: 150px;
+    height: 56px;
+    right: 55px;
+    font-size: 25px;
+}
+
+#id-div-chats {
+    padding: 20px 0 10px;
+}
+.oc-chat-item {
+    padding: 1px 40px 2px 26px;
+    min-height: 40px;
+   /* border-bottom: 1px solid #e0e0e0; */
+}
+.oc-chat-item:hover {
+    background-color: #f0f0f0;
+   /* border-bottom: 1px solid #e0e0e0; */
+}
+
+.oc-chatitem-cell {
+    margin-left: 50px;
+    margin-right: 90px;
+    word-break: break-word;
+  /*  clear: right; */
+}
+
+.oc-chatitem-avatar {
+    float: left;
+}
+
+.oc-time-stamp {
+    color: #948c8c;
+    font-size: 12px;
+}
