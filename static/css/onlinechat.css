@@ -1,9 +1,4 @@
-
-
-
-
 .sidebar {
-
     height: 100%;
     background: #4D394B;
     position: fixed;
@@ -12,16 +7,13 @@
     right: 0px;
     z-index: 5;
 }
-
 .side-channel-item {
     color: rgb(184,176,183);
     height: 26px;
     line-height: 26px;
     padding: 0 0.75rem 0 35px;
     width: 100%;
-
 }
-
 .side-channel-active {
     background: #4C9689;
 }
@@ -38,7 +30,6 @@
 .oc-userlist-avatar {
     float: left;
 }
-
 .user-list {
     margin-top: 20px;
     margin-left: 18px;
@@ -58,7 +49,6 @@
     background: white;
     height: 100%;
 }
-
 .topbar {
     border-bottom: solid lightgray 1px;
     padding: 10px 30px 10px 20px;
@@ -72,16 +62,13 @@
     margin-right: 90px;
     word-break: break-word;
 }
-
 .oc-title {
     font-size: 16px;
 }
-
 .oc-main {
     margin-bottom: 85px;
     margin-top: 65px;
 }
-
 .oc-input {
     position: fixed;
     bottom: 0px;
@@ -107,7 +94,6 @@
     right: 55px;
     font-size: 25px;
 }
-
 #id-div-chats {
     padding: 20px 0 10px;
 }
@@ -120,18 +106,15 @@
     background-color: #f0f0f0;
    /* border-bottom: 1px solid #e0e0e0; */
 }
-
 .oc-chatitem-cell {
     margin-left: 50px;
     margin-right: 90px;
     word-break: break-word;
   /*  clear: right; */
 }
-
 .oc-chatitem-avatar {
     float: left;
 }
-
 .oc-time-stamp {
     color: #948c8c;
     font-size: 12px;

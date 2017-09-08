@@ -3,7 +3,6 @@ body {
     background: #e6e6e6;
     padding-top: 52px;
 }
-
 .bottombar {
     margin: 10px;
     font-size: 90%;
@@ -14,7 +13,6 @@ body {
     text-align: center;
     padding: 15px;
 }
-
 .main {
     margin: 20px auto;
     width: 80%;
@@ -24,18 +22,14 @@ body {
     max-width: 900px;
     min-width: 1080px;
 }
-
-
 .majorbar {
     margin: 10px 310px 10px 10px;
     background: white;
     font-size: 105%;
 }
-
 .pagination {
     margin: 15px 5px;
 }
-
 .sidebar {
     width: 280px;
     font-size: 105%;
@@ -45,51 +39,46 @@ body {
 }
 
 
+.bbs-nav-container {
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    width: 100%;
+    background-color: #f8f8f8;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    /* margin-bottom: 20px; */
+}
 
-        .bbs-nav-container {
-            position: fixed;
-            z-index: 10;
-            top: 0px;
-            width: 100%;
-            background-color: #f8f8f8;
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-            /* margin-bottom: 20px; */
-        }
+.bbs-nav-container a {
+    text-decoration: none;
+    display: inline-block;
+    color: #777;
+}
 
-        .bbs-nav-container a {
-            text-decoration: none;
-            display: inline-block;
-            color: #777;
-        }
+.bbs-nav-header {
+    float: left;
+}
 
-        .bbs-nav-header {
-            float: left;
-        }
+.bbs-nav-header a {
+    font-size: 30px;
+    padding: 8px;
+}
 
-        .bbs-nav-header a {
-            font-size: 30px;
-            padding: 8px;
-        }
+.bbs-nav-cell {
+  /*  text-align: right;  */
+  /*  display flex; */
+}
 
-        .bbs-nav-cell {
-          /*  text-align: right;  */
-          /*  display flex; */
-        }
-
-        .bbs-navcell-item {
-            display: inline-block;
-           /* flex-grow: 1; */
-         /*   height: 20px;  */
-            font-size: 17px;
-            padding: 15px;
-        }
-        .bbs-navcell-item:hover {
-            background-color: #31044d;
-        }
-
-
-
-
+.bbs-navcell-item {
+    display: inline-block;
+   /* flex-grow: 1; */
+ /*   height: 20px;  */
+    font-size: 17px;
+    padding: 15px;
+}
+.bbs-navcell-item:hover {
+    background-color: #31044d;
+}
 
 
 .bbs-box {
@@ -98,16 +87,13 @@ body {
     overflow: hidden;
 
 }
-
 .cur_tag {
     background: #eee;
 }
-
 .bbs-box-header {
     background: #eee;
     padding: 10px;
 }
-
 .bbs-box-cell{
     padding: 10px;
 }
@@ -126,7 +112,6 @@ body {
 }
 
 
-
 .topic-post-container {
     padding: 10px;
 }
@@ -136,7 +121,6 @@ body {
     margin: 0px 0px 30px 0px;
     border-top: 1px solid #e0e0e0;
 }
-
 .topics .topic, .comments .comment {
     padding: 8px;
     border-bottom: 1px solid #e0e0e0;
@@ -202,9 +186,6 @@ body {
     margin: 0;
     cursor: pointer;
 }
-
-
-
 
 
 .sign-title {

@@ -13,15 +13,15 @@
 
 {% block topbar %}
 <div class="bbs-nav-container">
-    <div class="bbs-nav-header"><a href="#">DU1-Forum</a></div>
+    <div class="bbs-nav-header"><a href="#">Forum</a></div>
     <div class="bbs-nav-cell" align="">
-        <a class="bbs-navcell-item" href="/node/1">Home</a>
-        <a class="bbs-navcell-item" href="#">WaterPool</a>
+        <a class="bbs-navcell-item" href="#">Home</a>
+        <a class="bbs-navcell-item" href="#">Chat Room</a>
         <a class="bbs-navcell-item" href="#">Songs</a>
         {% if cur_user %}
-        <a class="bbs-navcell-item" href="/signout">Sign Out</a>
+        <a class="bbs-navcell-item" href="#">Sign Out</a>
         {% else %}
-        <a class="bbs-navcell-item" href="/signin">Sign In</a>
+        <a class="bbs-navcell-item" href="#">Sign In</a>
         {% endif %}
     </div>
 </div>

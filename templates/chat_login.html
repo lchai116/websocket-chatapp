@@ -29,28 +29,11 @@
 {% endblock content %}
 
 
+
 {% block scripts %}
 {{ super() }}
-<script type="text/javascript">
-    var log = function(){
-        console.log(arguments)
-    }
-
-    var bindAction = function(){
-        $('#id-button-submit').on('click', function(e){
-			var form = {
-				username: $('#id-input-username').val()
-			}
-            if(form.username == ""){
-				e.preventDefault()
-                swal('username can\'t be empty')
-            }
-        })
-    }
-
-    $(document).ready(function(){
-        bindAction()
-    })
-</script>
+<script src="/static/js/myjs.js"></script>
+<script src="/static/js/chat_login.js"></script>
 {%- endblock scripts %}
+
 
