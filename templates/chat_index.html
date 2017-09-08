@@ -13,9 +13,7 @@
 </head>
 <body>
     <div class="sidebar bbs-box">
-
         <h2 style="color: #fff; text-align: center;">Chat room</h2>
-
         <div class="side-channel-list">
             <div class="side-channel-title" style="padding-left: 65px; color: #fff;">Channel</div>
             <div class="side-channel-item"><a href="#">lobby</a></div>
@@ -23,89 +21,77 @@
             <div class="side-channel-item"><a href="#">room2</a></div>
         </div>
 
-
         <div class="user-list">
             {% for u in users_in_room %}
-                <div class="user-item">
-                    <a class="oc-userlist-avatar" href="#">
-                        <img class="oc-avatar" src="/static/img/avatar/avatar_default.png" height="25" width="25">
-                    </a>
-                    <div class="user-item-name">
-                        &nbsp;    &nbsp;
-                        <span><a href="#">{{u}}</a></span>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div>
-            <button id='id-button-send' class="btn btn-default" type="button">Send</button>
-        </div>
-    </div>
-
-
-
-
-<div class="main-box">
-    <div id="id-div-channel" class="topbar">
-        <div class="oc-title">
-            <div class="oc-chatitem-container user-avatar">
-                <a class="oc-chatitem-avatar" href="#">
-                    <img class="oc-avatar" src="{{cur_user.avatar}}" height="50" width="50">
+            <div class="user-item">
+                <a class="oc-userlist-avatar" href="#">
+                    <img class="oc-avatar" src="/static/img/avatar/avatar_default.png" height="25" width="25">
                 </a>
-                <div class="oc-user-info">
-                    <div class="oc-chatitem-info">
-                        <strong><a href="#">{{cur_user.username}}</a></strong>
-                        &nbsp;  •  &nbsp;
-                        <strong style="font-size: 16px;"> you are here in <span id="id-roomname">Hall</span></strong>
-                    </div>
-                    <div><strong><span id="user-counter"></span>&nbsp;  •  &nbsp; people in the room</strong></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="oc-main">
-        <div id="id-div-chats">
-            {% for m in msgs %}
-            <div class="oc-chat-item">
-                <div class="oc-chatitem-container">
-                    <div class="oc-chatitem-date"></div>
-                    <a class="oc-chatitem-avatar" href="#">
-                        <img class="oc-avatar" src="/static/img/avatar/avatar_default.png" height="36" width="36">
-                    </a>
-                    <div class="oc-chatitem-cell">
-                        <div class="oc-chatitem-info">
-                            <strong><a href="#">{{m.name}}</a></strong>
-                            &nbsp;  •  &nbsp;
-                            &nbsp;<time>{{m.creattime}}</time>
-                        </div>
-                        <div class="oc-chatitem-content">{{m.content}}</div>
-                    </div>
+                <div class="user-item-name">
+                    &nbsp;    &nbsp;
+                    <span><a href="#">{{u}}</a></span>
                 </div>
             </div>
             {% endfor %}
         </div>
+        <div><button id='id-button-send' class="btn btn-default" type="button">Send</button></div>
     </div>
 
-    <div class="oc-input">
-        <div class="oc-form-cotainer">
-            <form class="bs-example bs-example-form" role="form">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="input-group">
-                        <!-- <input id="id-input-name" type="text" class="form-control" name="name" placeholder="name"> -->
-                        <!-- <span class="input-group-btn"> -->
-                            <!-- <button id='id-button-send1' class="btn btn-default" type="button">Send</button> -->
-                        <!-- </span> -->
-                    </div><!-- /input-group -->
-                    <textarea id="id-input-content" class="form-control" name="content" placeholder="content"></textarea>
-                </div><!-- /.col-lg-6 -->
+
+    <div class="main-box">
+        <div id="id-div-channel" class="topbar">
+            <div class="oc-title">
+                <div class="oc-chatitem-container user-avatar">
+                    <a class="oc-chatitem-avatar" href="#">
+                        <img class="oc-avatar" src="{{cur_user.avatar}}" height="50" width="50">
+                    </a>
+                    <div class="oc-user-info">
+                        <div class="oc-chatitem-info">
+                            <strong><a href="#">{{cur_user.username}}</a></strong>
+                            &nbsp;  •  &nbsp;
+                            <strong style="font-size: 16px;"> you are here in <span id="id-roomname">Hall</span></strong>
+                        </div>
+                        <div><strong><span id="user-counter"></span>&nbsp;  •  &nbsp; people in the room</strong></div>
+                    </div>
+                </div>
             </div>
-            </form>
+        </div>
+
+        <div class="oc-main">
+            <div id="id-div-chats">
+                {% for m in msgs %}
+                <div class="oc-chat-item">
+                    <div class="oc-chatitem-container">
+                        <div class="oc-chatitem-date"></div>
+                        <a class="oc-chatitem-avatar" href="#">
+                            <img class="oc-avatar" src="/static/img/avatar/avatar_default.png" height="36" width="36">
+                        </a>
+                        <div class="oc-chatitem-cell">
+                            <div class="oc-chatitem-info">
+                                <strong><a href="#">{{m.name}}</a></strong>
+                                &nbsp;  •  &nbsp;
+                                &nbsp;<time>{{m.creattime}}</time>
+                            </div>
+                            <div class="oc-chatitem-content">{{m.content}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="oc-input">
+            <div class="oc-form-cotainer">
+                <form class="bs-example bs-example-form" role="form">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="input-group"></div>
+                        <textarea id="id-input-content" class="form-control" name="content" placeholder="content"></textarea>
+                    </div>
+                </div>
+                </form>
+            </div>
         </div>
     </div>
-
-</div>
-
 </body>
 </html>

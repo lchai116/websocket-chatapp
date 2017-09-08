@@ -1,4 +1,3 @@
-        var hall_msglist = []
         var cur_channel = ''
         var log = function(){
             console.log(arguments)
@@ -29,8 +28,6 @@
         api.post = function(url, form, response){
             api.ajax(url, 'post', form, response)
         }
-
-
 
 
         var chatItemTemplate = function(chat){
@@ -96,33 +93,11 @@
         var chatResponse = function(r){
             //var chat = JSON.parse(r)
             var chat = r
-            //hall_msglist.push(chat)
             if(cur_channel == chat.cur_channel){
                 insertChatItem(chat)
             }
         }
 
-        var sendMessage = function(){
-            var username = $('#id-input-name').val()
-            var content = $('#id-input-content').val()
-            var message = {
-                username: username,
-                content: content,
-            }
-            var request = {
-                url: '/add',
-                type: 'post',
-                contentType: 'application/json',
-                data: JSON.stringify(message),
-                success: function(r){
-                    log('ok', r)
-                },
-                error: function(err){
-                    log('error', err)
-                }
-            }
-            $.ajax(request)
-        }
 
 		var safeStr = function(str){
 			return str.replace(/</g,'&lt;').replace(/>/g,'&gt;')
@@ -153,7 +128,6 @@
             })
 
             socket.on('myresp', function(data){
-                log('luch1111')
                 chatResponse(data)
             })
 
@@ -204,13 +178,9 @@
         }
 
 
-        var bindActions = function(){
-            //$('#id-button-send').on('click', function(){
-                //sendMessage()
-            //})
-
-            $('.side-channel-item').on('click', function(e){
-                e.preventDefault()
+        var bindEventChannelSelect = function(){
+            $('.side-channel-item').on('click', function(event){
+                event.preventDefault()
                 var self = $(this)
                 cur_channel = self.text()
                 $('.side-channel-item').removeClass('side-channel-active')
@@ -219,15 +189,12 @@
                 api.post('/chat/channelMsg', {cur_channel: cur_channel}, channelInit)
                 log('btn click: and join sent', cur_channel)
             })
+        }
 
-            $(window).bind('beforeunload',function(){
-                socket.emit('close broadcast', {cur_channel: cur_channel})
-                socket.close()
-                //return 'ffff';   
-            }); 
 
-            $('#id-input-content').keypress(function(e){
-                var code = e.keyCode || e.which
+        var bindEventEnterKeypress = function(){
+            $('#id-input-content').keypress(function(event){
+                var code = event.keyCode || event.which
                 if(code == 13){
                     $('#id-button-send').click()
                     setTimeout(function(){
@@ -236,7 +203,14 @@
                     //$('#id-input-content').val('')
                 }
             })
-        
+        }
+
+
+        var bindEventWindowClose = function(){
+            $(window).bind('beforeunload',function(){
+                socket.emit('close broadcast', {cur_channel: cur_channel})
+                socket.close()
+            });
         }
         
         // long time ago
@@ -275,12 +249,10 @@
 
         var __main = function(){
             var sock = socketInit()
-            bindActions()
-            //subscribe()
+            bindEventChannelSelect()
+            bindEventEnterKeypress()
+            bindEventWindowClose()
             $('.side-channel-item')[0].click()
-            //setInterval(function(){
-              //  longTimeAgo()
-            //}, 1000)            
         }
 
         $(document).ready(function(){
