@@ -1,5 +1,8 @@
-from flask import session
-from flask_socketio import SocketIO, emit, disconnect, join_room
+from flask_socketio import SocketIO
+from flask_socketio import emit
+from flask_socketio import disconnect
+from flask_socketio import join_room
+
 from . import *
 
 
@@ -42,7 +45,6 @@ def joined(message):
 
 @socketio.on('chat', namespace='/chat/lobby')
 def handle_chat(message):
-    # print message
     username = session.get('username', 'guest')
     content = message.get('content', '')
     cur_channel = message['cur_channel']
@@ -56,7 +58,6 @@ def handle_chat(message):
     # store the msg record into redis
     msg_to_redis(r)
     emit('myresp', r, room=cur_channel)
-    # print r
 
 
 @socketio.on('close broadcast', namespace='/chat/lobby')

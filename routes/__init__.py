@@ -1,6 +1,7 @@
 import redis
 import time
 import random
+from flask import session
 
 
 red = redis.Redis(host='127.0.0.1', port=6379, db=1)

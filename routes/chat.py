@@ -1,5 +1,11 @@
-from flask import render_template, request, session, redirect, url_for, Blueprint
+from flask import render_template
+from flask import request
+from flask import redirect
+from flask import url_for
+from flask import Blueprint
+
 import json
+
 from . import *
 
 
@@ -8,9 +14,9 @@ main = Blueprint('main', __name__)
 
 def msg_from_redis(channel):
     ms = []
+    # get msg number from string msg:channel:count
     num = red.get('message:{}:count'.format(channel))
     num = 0 if not num else int(num)
-    print 'message:{}:count got {} msgs'.format(channel, num)
     # select 10 msg record from db
     j = num if num < 10 else 10
     for i in range(num)[-j:]:
@@ -26,15 +32,15 @@ def chat_login():
     if request.method == 'POST':
         uname = request.form.get('username', 'guest')
         session['username'] = uname
+        # allocate a random avatar for the logging user, if name exists
         name_avatar_map[uname] = random.choice(avatar_list)
-        print uname + ' new session name got'
         return redirect(url_for('.chat_index'))
     else:
-        # print session.get('username', 'empytsession') + 'session when login get'
         if not request.form.get('username'):
             return render_template('chat_login.html')
         else:
             return redirect(url_for('.chat_index'))
+
 
 @main.route('/')
 @main.route('/lobby')
@@ -43,9 +49,7 @@ def chat_index():
     if not uname:
         return redirect(url_for('.chat_login'))
     else:
-        # print session['username'] + ' Now the session name is'
         cur_user = user_inst_by_name(uname)
-        print 'here my cur_user:{}'.format(cur_user)
         return render_template('chat_index.html', cur_user=cur_user, users_in_room=[])
 
 
