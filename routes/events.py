@@ -17,6 +17,7 @@ def members_set_from_db(channel):
 
 def msg_to_redis(msg_dict):
     channel = msg_dict['cur_channel']
+    # msg counter  message:channel:msgid
     msg_id = str(red.incr('message:{}:count'.format(channel)))
     msg_key = 'message:{}:{}'.format(channel, msg_id)
     red.hmset(msg_key, msg_dict)
@@ -41,7 +42,7 @@ def joined(message):
 
 @socketio.on('chat', namespace='/chat/lobby')
 def handle_chat(message):
-    print message
+    # print message
     username = session.get('username', 'guest')
     content = message.get('content', '')
     cur_channel = message['cur_channel']
@@ -52,10 +53,10 @@ def handle_chat(message):
         cur_channel=cur_channel,
         avatar=user_inst_by_name(username)['avatar']
     )
-    # store the msg record in redis
-    # msg_to_redis(r)
+    # store the msg record into redis
+    msg_to_redis(r)
     emit('myresp', r, room=cur_channel)
-    print r
+    # print r
 
 
 @socketio.on('close broadcast', namespace='/chat/lobby')

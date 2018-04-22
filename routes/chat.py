@@ -53,6 +53,7 @@ def chat_index():
 def get_channel_msg():
     form = request.form
     cur_channel = form.get('cur_channel')
+    # loading msg record from db when enter the room
     msgs_in_room = msg_from_redis(cur_channel)
     cur_user = session.get('username', 'guest')
     r = {
