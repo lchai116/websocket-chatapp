@@ -2,9 +2,9 @@
 
 
 {% block styles%}
-<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
-<link href="{{url_for('static', filename='css/bbs.css')}}" rel="stylesheet">
-<link href="{{url_for('static', filename='css/sweetalert2.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename='chat/css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename='chat/css/bbs.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename='chat/css/sweetalert2.min.css')}}" rel="stylesheet">
 {% endblock styles %}
 
 
@@ -79,8 +79,8 @@
 
 {% block scripts %}
 {{ super() }}
-<script src="/static/js/jquery-3.0.0.js"></script>
-<script src="/static/js/sweetalert2.js"></script>
+<script src="/static/chat/js/jquery-3.0.0.js"></script>
+<script src="/static/chat/js/sweetalert2.js"></script>
 {%- endblock scripts %}
 
 

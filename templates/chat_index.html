@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>chatroom</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/onlinechat.css">
-    <link rel="stylesheet" href="/static/css/sweetalert2.min.css">
-    <script src="/static/js/jquery-3.0.0.js"></script>
-    <script src="/static/js/socket.io.min.js"></script>
-    <script src="/static/js/myjs.js"></script>
-    <script src="/static/js/chat_room.js"></script>
-    <script src="/static/js/sweetalert2.js"></script>
+    <link rel="stylesheet" href="/static/chat/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/chat/css/onlinechat.css">
+    <link rel="stylesheet" href="/static/chat/css/sweetalert2.min.css">
+    <script src="/static/chat/js/jquery-3.0.0.js"></script>
+    <script src="/static/chat/js/socket.io.min.js"></script>
+    <script src="/static/chat/js/myjs.js"></script>
+    <script src="/static/chat/js/chat_room.js"></script>
+    <script src="/static/chat/js/sweetalert2.js"></script>
 </head>
 <body>
     <div class="sidebar bbs-box">
@@ -26,7 +26,7 @@
             {% for u in users_in_room %}
             <div class="user-item">
                 <a class="oc-userlist-avatar" href="#">
-                    <img class="oc-avatar" src="/static/img/avatar/avatar_default.png" height="25" width="25">
+                    <img class="oc-avatar" src="/static/chat/img/avatar/avatar_default.png" height="25" width="25">
                 </a>
                 <div class="user-item-name">
                     &nbsp;    &nbsp;
@@ -65,7 +65,7 @@
                     <div class="oc-chatitem-container">
                         <div class="oc-chatitem-date"></div>
                         <a class="oc-chatitem-avatar" href="#">
-                            <img class="oc-avatar" src="/static/img/avatar/avatar_default.png" height="36" width="36">
+                            <img class="oc-avatar" src="/static/chat/img/avatar/avatar_default.png" height="36" width="36">
                         </a>
                         <div class="oc-chatitem-cell">
                             <div class="oc-chatitem-info">

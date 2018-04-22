@@ -24,7 +24,7 @@ def msg_to_redis(msg_dict):
 
 @socketio.on('connect')
 def srv_connect():
-    print 'sock_conn luch'
+    print 'sock_connected'
 
 
 @socketio.on('joined', namespace='/chat/lobby')
@@ -32,11 +32,8 @@ def joined(message):
     username = session.get('username')
     cur_channel = message['cur_channel']
     join_room(cur_channel)
-    print 'joined ' + cur_channel
     emit('stat-tst', {'msg': session.get('username') + ' has entered the room.'})
-    print 'before sadd' + cur_channel + username
     if not red.sismember('channel:{}:members' + cur_channel, username):
-        print 'sadd' + cur_channel
         red.sadd('channel:{}:members'.format(cur_channel), username)
         member_in_room = members_set_from_db(cur_channel)
         emit('member update', {'member_in_room': member_in_room}, room=cur_channel)
@@ -44,7 +41,6 @@ def joined(message):
 
 @socketio.on('chat', namespace='/chat/lobby')
 def handle_chat(message):
-    print 'enter btn'
     print message
     username = session.get('username', 'guest')
     content = message.get('content', '')
@@ -66,12 +62,13 @@ def handle_chat(message):
 def close_broadcaset(data):
     cur_channel = data.get('cur_channel')
     username = session.get('username')
+    session.pop('username', None)
     red.srem('channel:{}:members'.format('lobby'), username)
     red.srem('channel:{}:members'.format('room1'), username)
     red.srem('channel:{}:members'.format('room2'), username)
 
     member_in_room = members_set_from_db(cur_channel)
-    print 'close broad'
+    print 'close broadcast'
     emit('member update', {'member_in_room': member_in_room}, room=cur_channel)
 
 
