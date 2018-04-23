@@ -1,5 +1,6 @@
 import sys
-from os.path import abspath, dirname
+from os.path import dirname
+from os.path import abspath
 
 
 sys.path.insert(0, abspath(dirname(__file__)))

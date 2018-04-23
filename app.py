@@ -2,6 +2,7 @@ from flask import Flask
 from routes.events import socketio
 from routes.chat import main as chat_bp
 
+
 app = Flask(__name__)
 
 
