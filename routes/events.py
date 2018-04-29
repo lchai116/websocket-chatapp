@@ -6,6 +6,7 @@ from flask_socketio import join_room
 from . import *
 
 
+logger = logging.getLogger(__name__)
 socketio = SocketIO()
 
 
@@ -28,7 +29,7 @@ def msg_to_redis(msg_dict):
 
 @socketio.on('connect')
 def srv_connect():
-    print 'sock_connected'
+    logger.info('sock_connected')
 
 
 @socketio.on('joined', namespace='/chat/lobby')
@@ -70,10 +71,10 @@ def close_broadcaset(data):
     red.srem('channel:{}:members'.format('room2'), username)
 
     member_in_room = members_set_from_db(cur_channel)
-    print 'close broadcast'
+    logger.info('close broadcast')
     emit('member update', {'member_in_room': member_in_room}, room=cur_channel)
 
 
 @socketio.on('disconnect')
 def srv_disconnect():
-    print 'Client disconnected'
+    logger.info('Client disconnected')

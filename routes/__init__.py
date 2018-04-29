@@ -1,6 +1,8 @@
 import redis
 import time
 import random
+import logging
+
 from flask import session
 
 
